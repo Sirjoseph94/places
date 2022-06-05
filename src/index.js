@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Nav from './components/Nav';
+import data from './data';
+import Card from './components/Card';
+import Footer from './components/Footer';
 import reportWebVitals from './reportWebVitals';
+const card = data.map(item => {
+  return (
+  <Card
+    title={item.title}
+    location={item.location}
+    googleMapsUrl={item.googleMapsUrl}
+    startDate={item.startDate}
+    description={item.description}
+    imageUrl={item.imageUrl}
+  />)
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Nav />
+   {card}
+    <Footer />
   </React.StrictMode>
 );
 
